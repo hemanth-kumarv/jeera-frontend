@@ -1,9 +1,8 @@
-<h1 align="center">New React App</h1>
+<h1 align="center">Jeera Frontend</h1>
 
 <br />
 
-This is a blank README file that you can customize at your needs.\
-Describe your project, how it works and how to contribute to it.
+Mock application (Frontend) of Jira for Issue Tracking in Agile Project Management
 
 <br />
 
@@ -105,28 +104,23 @@ This is the structure of the files in the project:
     │
     ├── public                  # public files (favicon, .htaccess, manifest, ...)
     ├── src                     # source files
-    │   ├── components
-    │   ├── pages
+    │   ├── components          # smallest reusable components
+    │   ├── layouts             # combination of components
+    │   ├── pages               # single screen, combination of components/layouts
     │   ├── resources           # images, constants and other static resources
     │   ├── store               # Redux store
     │   │   ├── actions         # store's actions
     │   │   └── reducers        # store's reducers
-    │   ├── styles
-    │   ├── tests               # all test files
-    │   ├── types               # data interfaces
-    │   ├── utility             # utilities functions and custom components
-    │   ├── App.tsx
-    │   ├── index.tsx
-    │   ├── react-app-env.d.ts
-    │   ├── RootComponent.tsx   # React component with all the routes
-    │   ├── serviceWorker.ts
-    │   └── setupTests.ts
+    │   ├── App.jsx
+    │   ├── index.jsx
+    │   ├── RootComponent.jsx   # React component with all the routes
+    │   ├── serviceWorker.js
+    │   └── setupTests.js
     ├── .eslintrc.js
     ├── .gitignore
     ├── .prettierrc
     ├── package.json
     ├── README.md
-    └── tsconfig.json
 ```
 
 # 📖 Learn More
