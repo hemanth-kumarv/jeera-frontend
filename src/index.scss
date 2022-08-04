@@ -1,0 +1,19 @@
+@mixin light-theme {
+    background: white;
+    color: black;
+}
+
+@mixin dark-theme {
+    background: black;
+    color: white;
+}
+
+body {
+    margin: 0;
+}
+
+#root {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}

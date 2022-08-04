@@ -1,11 +1,13 @@
-import React from "react";
-// import DateDisplay from '../components/DateDisplay'
+import React, { useState } from "react";
+import "./HomePage.scss";
 
 const HomePage = () => {
+    const [theme, setTheme] = useState("dark");
+
     return (
-        <div style={{ position: "relative", width: "100%", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+        <div className={`page ${theme}`}>
             <h1 style={{ fontSize: "4em" }}>Hello world!</h1>
-            {/* <DateDisplay /> */}
+            <button onClick={() => setTheme((prevTheme) => (prevTheme == "dark" ? "light" : "dark"))}>Change Theme</button>
         </div>
     );
 };
