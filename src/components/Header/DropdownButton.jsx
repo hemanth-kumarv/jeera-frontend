@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./DropdownButton.scss";
-import Select from "react-select";
 
 const DropdownButton = ({ text }) => {
     const popupRef = useRef();
