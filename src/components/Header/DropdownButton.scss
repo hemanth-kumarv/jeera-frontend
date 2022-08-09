@@ -1,7 +1,7 @@
 @use "../variables" as v;
 
 .dropdown-button {
-    color: v.$header-button-text-light;
+    color: v.$text-light-1;
     white-space: nowrap;
     height: 32px;
     cursor: pointer;
@@ -12,14 +12,14 @@
     p {
         padding: 4px;
         border-radius: 3px;
-        color: v.$header-button-text-light;
+        color: v.$text-light-1;
         font-weight: 500;
         margin: 0;
         display: flex;
         align-items: center;
         font-size: 14px;
         &::after {
-            border: solid v.$header-button-text-light;
+            border: solid v.$text-light-1;
             border-width: 0 1px 1px 0;
             margin-left: 6px;
             padding: 2px;
@@ -28,8 +28,8 @@
             transform: rotate(45deg);
         }
         &:hover {
-            color: v.$header-active-button-text-light;
-            background: v.$header-active-button-background-light;
+            color: v.$text-light-2;
+            background: v.$background-light-2;
         }
     }
 }
@@ -38,7 +38,7 @@
     top: 0;
     left: 0;
     z-index: 20;
-    background: v.$header-button-background-light;
+    background: v.$background-light-1;
     padding: 10px 20px;
     box-shadow: var(--ds-shadow-overlay, 0 4px 8px -2px rgba(9, 30, 66, 0.25), 0 0 1px rgba(9, 30, 66, 0.31));
 }

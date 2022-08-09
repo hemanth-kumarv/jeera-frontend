@@ -1,0 +1,32 @@
+@use "../../../variables" as v;
+
+.sidebar-project-details {
+    display: flex;
+    padding: 30px 10px 10px;
+    align-items: center;
+    width: 100%;
+
+    .project-logo {
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+    }
+    .project-labels {
+        display: flex;
+        flex-direction: column;
+        width: calc(100% - 40px);
+        padding-left: 8px;
+        .title {
+            color: v.$sidebar-text-light-1;
+            font-size: 14px;
+            font-weight: 500;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .description {
+            color: v.$sidebar-text-light-2;
+            font-size: 12px;
+        }
+    }
+}

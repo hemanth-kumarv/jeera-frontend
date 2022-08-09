@@ -1,0 +1,34 @@
+@use "../../../variables" as v;
+
+.sidebar-navigation-links {
+    font-size: 14px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    padding-left: 12px;
+    position: relative;
+    color: v.$sidebar-text-light-1;
+    & > svg {
+        width: 24px;
+        height: 24px;
+    }
+    .navigation-link-label {
+        margin-left: 12px;
+    }
+}
+.active-tab-indicator {
+    top: 30%;
+    border-radius: 0 2px 2px 0;
+    left: 0;
+    height: 40%;
+    width: 4px;
+    position: absolute;
+}
+.active-nav-link {
+    background: v.$sidebar-active-link-background-light;
+    color: v.$text-light-2;
+    .active-tab-indicator {
+        background: v.$text-light-2;
+    }
+}

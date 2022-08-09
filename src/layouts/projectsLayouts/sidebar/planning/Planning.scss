@@ -1,0 +1,33 @@
+@use "../../../../components/variables" as v;
+
+.sidebar-group {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 20px;
+}
+.group-title {
+    font-weight: 700;
+    font-size: 11px;
+    color: v.$sidebar-text-light-1;
+    margin: 0 0 6px 18px;
+}
+
+.collapse-icon {
+    border: solid v.$text-light-1;
+    border-width: 0 2px 2px 0;
+    margin-left: 6px;
+    padding: 2px;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 4px;
+    cursor: pointer;
+    &[arrow="bottom"] {
+        transform: rotate(45deg);
+    }
+    &[arrow="right"] {
+        transform: rotate(315deg);
+    }
+}

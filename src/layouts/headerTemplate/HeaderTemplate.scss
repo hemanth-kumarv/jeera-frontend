@@ -7,7 +7,6 @@
     height: 60px;
     box-shadow: 0 2px 2px -2px gray;
     margin-bottom: 2px;
-    padding: 0 8px;
     & > div {
         display: flex;
         justify-content: flex-start;
@@ -18,7 +17,7 @@
         width: 24px;
         height: 24px;
         cursor: pointer;
-        margin: 0;
+        margin: 0 8px;
         align-self: center;
         flex-shrink: 0;
     }
@@ -26,18 +25,18 @@
         width: 100%;
         // flex-shrink: 0;
         height: 24px;
-        margin: 0 16px;
+        margin: 0 8px;
     }
     .logo-sm {
         width: 24px;
     }
 
     .button {
-        background: v.$header-active-button-text-light;
-        color: v.$header-button-background-light;
+        background: v.$text-light-2;
+        color: v.$background-light-1;
         font-weight: 500;
         font-size: 14px;
-        padding: 5px 10px;
+        padding: 8px 10px;
         border-radius: 3px;
         margin-left: 4px;
         cursor: pointer;
@@ -49,8 +48,8 @@
         color: white;
         filter: invert(1);
     }
-    &:last-child {
-        svg {
+    & > div:last-child {
+        & > svg {
             margin: 0 6px;
             cursor: pointer;
         }
@@ -58,7 +57,7 @@
     .user-icon {
         width: 28px;
         height: 28px;
-        margin-right: 8px;
+        margin-right: 16px;
         cursor: pointer;
         border-radius: 50%;
     }
