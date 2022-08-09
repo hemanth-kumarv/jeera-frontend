@@ -34,7 +34,7 @@ const HeaderTemplate = () => {
                 <DropdownButton text={"Dashboards"} />
                 <DropdownButton text={"People"} />
                 <DropdownButton text={"Apps"} />
-                <div className="button">Create</div>
+                <div className={styles["button"]}>Create</div>
             </div>
             <div>
                 <SearchBar />

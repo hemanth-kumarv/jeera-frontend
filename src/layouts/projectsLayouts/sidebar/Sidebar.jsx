@@ -3,6 +3,7 @@ import React from "react";
 import ProjectDetails from "../../../components/projectsComponents/sidebarComponents/projectDetails/ProjectDetails";
 import Planning from "./planning/Planning";
 import Development from "./development/Development";
+import Operations from "./operations/Operations";
 
 const Sidebar = (props) => {
     return (
@@ -10,6 +11,7 @@ const Sidebar = (props) => {
             <ProjectDetails />
             <Planning />
             <Development />
+            <Operations />
         </div>
     );
 };

@@ -1,0 +1,35 @@
+import React, { useState } from "react";
+import styles from "../Sidebar.module.scss";
+import { ReactComponent as DeploymentsIcon } from "../../../../resources/icons/sideNavigation/deployments.svg";
+import { ReactComponent as OnCallIcon } from "../../../../resources/icons/sideNavigation/onCall.svg";
+import SideNavigationLinks from "../../../../components/projectsComponents/sidebarComponents/sideNavigationLinks/SideNavigationLinks";
+
+const Operations = (props) => {
+    const [isCaretShown, toggleCaret] = useState(false);
+    const [isNavLinksShown, toggleNavLinks] = useState(true);
+
+    return (
+        <div
+            className={`${styles["sidebar-group"]} ${styles["Operations"]}`}
+            onMouseOver={() => toggleCaret(true)}
+            onMouseOut={() => toggleCaret(!isNavLinksShown || false)}
+        >
+            {isCaretShown && (
+                <div
+                    className={styles["collapse-icon"]}
+                    onClick={() => toggleNavLinks((prevState) => !prevState)}
+                    arrow={isNavLinksShown ? "bottom" : "right"}
+                />
+            )}
+            <div className={styles["group-title"]}>OPERATIONS</div>
+            {isNavLinksShown && (
+                <>
+                    <SideNavigationLinks SvgIcon={DeploymentsIcon} isActive={false} label={"Deployments"} />
+                    <SideNavigationLinks SvgIcon={OnCallIcon} isActive={false} label={"On-Call"} />
+                </>
+            )}
+        </div>
+    );
+};
+
+export default Operations;
