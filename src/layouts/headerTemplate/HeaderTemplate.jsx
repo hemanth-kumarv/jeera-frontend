@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./HeaderTemplate.scss";
+import styles from "./HeaderTemplate.module.scss";
 
 // Assets
 import { ReactComponent as CandyBoxIcon } from "../../resources/icons/common/candyboxMenu.svg";
@@ -24,10 +24,10 @@ const HeaderTemplate = () => {
     }, []);
 
     return (
-        <div className={`common-header`}>
+        <div className={styles[`common-header`]}>
             <div>
-                <CandyBoxIcon className={`candybox-menu`} />
-                {screenWidth < 1200 ? <LogoSmall className={`jira-logo logo-sm`} /> : <Logo className={`jira-logo`} />}
+                <CandyBoxIcon className={styles[`candybox-menu`]} />
+                {screenWidth < 1200 ? <LogoSmall className={`${styles["jira-logo"]} ${styles["logo-sm"]}`} /> : <Logo className={styles[`jira-logo`]} />}
                 <DropdownButton text={"Your Work"} />
                 <DropdownButton text={"Projects"} />
                 <DropdownButton text={"Filters"} />
@@ -39,9 +39,12 @@ const HeaderTemplate = () => {
             <div>
                 <SearchBar />
                 <BellIcon />
-                <HelpIcon className="help-icon" />
+                <HelpIcon className={styles["help-icon"]} />
                 <SettingsIcon />
-                <img src={`https://ui-avatars.com/api?background=random&format=svg&name=${"Hemanth Kumar".split(" ").join("+")}`} className="user-icon" />
+                <img
+                    src={`https://ui-avatars.com/api?background=random&format=svg&name=${"Hemanth Kumar".split(" ").join("+")}`}
+                    className={styles["user-icon"]}
+                />
             </div>
         </div>
     );

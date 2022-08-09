@@ -9,12 +9,17 @@
     padding-left: 12px;
     position: relative;
     color: v.$sidebar-text-light-1;
+    cursor: pointer;
+
     & > svg {
         width: 24px;
         height: 24px;
     }
     .navigation-link-label {
         margin-left: 12px;
+    }
+    &:hover {
+        background: v.$sidebar-active-link-background-light;
     }
 }
 .active-tab-indicator {

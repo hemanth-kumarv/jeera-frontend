@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Development.scss";
+import styles from "../Sidebar.module.scss";
 import { ReactComponent as CodeIcon } from "../../../../resources/icons/sideNavigation/code.svg";
 import { ReactComponent as ReleasesIcon } from "../../../../resources/icons/sideNavigation/releases.svg";
 import SideNavigationLinks from "../../../../components/projectsComponents/sidebarComponents/sideNavigationLinks/SideNavigationLinks";
@@ -9,11 +9,19 @@ const Development = (props) => {
     const [isNavLinksShown, toggleNavLinks] = useState(true);
 
     return (
-        <div className={`sidebar-group development`} onMouseOver={() => toggleCaret(true)} onMouseOut={() => toggleCaret(!isNavLinksShown || false)}>
+        <div
+            className={`${styles["sidebar-group"]} ${styles["planning"]}`}
+            onMouseOver={() => toggleCaret(true)}
+            onMouseOut={() => toggleCaret(!isNavLinksShown || false)}
+        >
             {isCaretShown && (
-                <div className="collapse-icon" onClick={() => toggleNavLinks((prevState) => !prevState)} arrow={isNavLinksShown ? "bottom" : "right"} />
+                <div
+                    className={styles["collapse-icon"]}
+                    onClick={() => toggleNavLinks((prevState) => !prevState)}
+                    arrow={isNavLinksShown ? "bottom" : "right"}
+                />
             )}
-            <div className="group-title">DEVELOPMENT</div>
+            <div className={styles["group-title"]}>DEVELOPMENT</div>
             {isNavLinksShown && (
                 <>
                     <SideNavigationLinks SvgIcon={CodeIcon} isActive={false} label={"Code"} />

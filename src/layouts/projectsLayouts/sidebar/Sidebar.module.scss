@@ -1,4 +1,13 @@
-@use "../../../../components/variables" as v;
+@use "../../../components/variables" as v;
+
+.projects-sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 224px;
+    height: calc(100% - 16px); // 16px from padding below
+    padding: 8px;
+    background: v.$sidebar-background-light;
+}
 
 .sidebar-group {
     display: flex;
