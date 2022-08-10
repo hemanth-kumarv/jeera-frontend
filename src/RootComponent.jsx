@@ -1,16 +1,17 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import MainPageTemplate from "./layouts/mainPageTemplate/MainPageTemplate";
 // import HomePage from "./pages/HomePage";
 import Projects from "./pages/projects/Projects";
-import { ROUTES } from "./resources/routes-constants";
+import { MAIN_ROUTES } from "./resources/routes-constants";
 // import './styles/main.sass'
 
 const AuthRoutes = () => (
     <MainPageTemplate>
         <Routes>
             {/* <Route path="/test" element={<HomePage />} /> */}
-            <Route path={ROUTES.PROJECTS_ROUTE} element={<Projects />} />
+            <Route path={MAIN_ROUTES.PROJECTS_ROUTE} element={<Projects />} />
+            <Route path="/" element={<Navigate replace to={MAIN_ROUTES.PROJECTS_ROUTE} />} />
         </Routes>
     </MainPageTemplate>
 );
