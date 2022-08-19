@@ -1,0 +1,80 @@
+@use "../../../variables" as v;
+
+.issues-table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: calc(100% - 145px); // 145px = height of IssuesHeader
+    overflow: auto;
+
+    .table-row {
+        display: flex;
+        font-size: 14px;
+        font-weight: 500;
+        width: 1608px;
+        & > div {
+            display: flex;
+            & > div {
+                display: flex;
+                align-items: center;
+                padding-left: 8px;
+                width: max-content;
+                border-radius: 3px;
+                cursor: pointer;
+                &:hover {
+                    background: v.$projects-dropdown-background-light-2;
+                    img {
+                        visibility: unset;
+                    }
+                }
+            }
+            img {
+                width: 24px;
+                height: 24px;
+                visibility: hidden;
+            }
+        }
+    }
+    .table-header {
+        color: v.$projects-text-light-1;
+        border-bottom: 2px solid #dfe1e6;
+        padding-bottom: 4px;
+    }
+
+    .type {
+        min-width: 66px;
+    }
+    .key {
+        min-width: 96px;
+    }
+    .summary {
+        min-width: 452px;
+    }
+    .assignee {
+        min-width: 170px;
+    }
+    .reporter {
+        min-width: 170px;
+    }
+    .priority {
+        min-width: 42px;
+    }
+    .status {
+        min-width: 140px;
+    }
+    .resolution {
+        min-width: 106px;
+    }
+    .created-on {
+        min-width: 106px;
+    }
+    .updated-on {
+        min-width: 106px;
+    }
+    .due-on {
+        min-width: 106px;
+    }
+    .options {
+        min-width: 48px;
+    }
+}

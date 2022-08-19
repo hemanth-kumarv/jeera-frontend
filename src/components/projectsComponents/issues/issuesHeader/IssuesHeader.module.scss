@@ -1,0 +1,23 @@
+@use "../../../variables" as v;
+
+.issues-header {
+    display: flex;
+    flex-direction: column;
+    & > div {
+        display: flex;
+        &:last-child {
+            margin: 1rem 0 2rem;
+        }
+    }
+
+    .subroute-title {
+        font-weight: 500;
+        color: v.$projects-text-light-1;
+        font-size: 1.5rem;
+        margin: 0.2rem 0 0.8rem;
+    }
+    .title-options {
+        display: flex;
+        margin-left: auto;
+    }
+}

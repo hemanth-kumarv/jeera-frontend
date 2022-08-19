@@ -18,7 +18,7 @@ const Projects = (props) => {
             <Routes>
                 {/* <Route path={PROJECTS_ROUTES.ROADMAP_ROUTE} /> */}
                 <Route path={PROJECTS_ROUTES.ISSUES_ROUTE} element={<Issues />} />
-                <Route path="/" element={<Navigate replace to={PROJECTS_ROUTES.ISSUES_ROUTE} />} />
+                <Route path="/*" element={<Navigate replace to={PROJECTS_ROUTES.ISSUES_ROUTE} />} />
             </Routes>
         </ProjectsDOM>
     );

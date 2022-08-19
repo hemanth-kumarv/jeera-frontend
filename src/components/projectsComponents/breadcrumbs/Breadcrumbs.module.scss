@@ -1,0 +1,17 @@
+@use "../../variables" as v;
+.breadcrumbs {
+    display: flex;
+    color: v.$breadcrumbs-text-light-1;
+    font-size: 14px;
+    .breadcrumbs-delimiter {
+        margin: 0 0.5rem;
+    }
+    a {
+        color: v.$breadcrumbs-text-light-1;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+            opacity: 0.8;
+        }
+    }
+}

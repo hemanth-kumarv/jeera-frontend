@@ -1,0 +1,54 @@
+@use "../../variables" as v;
+
+.projects-dropdown {
+    .dropdown-container {
+        background: v.$projects-dropdown-background-light-1;
+        color: v.$sidebar-text-light-1;
+        border-radius: 3px;
+        padding: 0 10px;
+        height: 2rem;
+        display: flex;
+        align-items: center;
+        margin: 0 0.5rem;
+        cursor: pointer;
+        &:hover {
+            background: v.$projects-dropdown-background-light-2;
+        }
+        p {
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+            user-select: none;
+            &::after {
+                border: solid v.$text-light-1;
+                border-width: 0 1px 1px 0;
+                margin-left: 0.5rem;
+                padding: 2px;
+                content: "";
+                display: inline-block;
+                transform: rotate(45deg);
+            }
+        }
+    }
+    .active-dropdown {
+        background: v.$projects-dropdown-background-light-3;
+        &:hover {
+            background-color: currentColor;
+        }
+        p {
+            color: v.$projects-dropdown-text-light-1;
+            &::after {
+                border-color: v.$projects-dropdown-text-light-1;
+            }
+        }
+    }
+
+    .dropdown-content {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 20;
+        box-shadow: 0 0 1px #091e4240;
+        padding: 4px 10px;
+    }
+}

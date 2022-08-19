@@ -6,10 +6,13 @@ import { ReactComponent as BoardIcon } from "../../../../resources/icons/sideNav
 import { ReactComponent as ReportsIcon } from "../../../../resources/icons/sideNavigation/reports.svg";
 import { ReactComponent as IssuesIcon } from "../../../../resources/icons/sideNavigation/issues.svg";
 import SideNavigationLinks from "../../../../components/projectsComponents/sidebarComponents/sideNavigationLinks/SideNavigationLinks";
+import { PROJECTS_ROUTES } from "../../../../resources/routes-constants";
 
 const Planning = (props) => {
     const [isCaretShown, toggleCaret] = useState(false);
     const [isNavLinksShown, toggleNavLinks] = useState(true);
+
+    const isActiveTab = (name) => location.pathname?.includes(name);
 
     return (
         <div
@@ -27,11 +30,11 @@ const Planning = (props) => {
             <div className={styles["group-title"]}>PLANNING</div>
             {isNavLinksShown && (
                 <>
-                    <SideNavigationLinks SvgIcon={RoadmapIcon} isActive={true} label={"Roadmap"} />
+                    <SideNavigationLinks SvgIcon={RoadmapIcon} isActive={false} label={"Roadmap"} />
                     <SideNavigationLinks SvgIcon={BacklogIcon} isActive={false} label={"Backlog"} />
                     <SideNavigationLinks SvgIcon={BoardIcon} isActive={false} label={"Board"} />
                     <SideNavigationLinks SvgIcon={ReportsIcon} isActive={false} label={"Reports"} />
-                    <SideNavigationLinks SvgIcon={IssuesIcon} isActive={false} label={"Issues"} />
+                    <SideNavigationLinks SvgIcon={IssuesIcon} isActive={isActiveTab(PROJECTS_ROUTES.ISSUES_ROUTE)} label={"Issues"} />
                 </>
             )}
         </div>
