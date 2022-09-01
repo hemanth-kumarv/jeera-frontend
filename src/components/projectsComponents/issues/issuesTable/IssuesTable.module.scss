@@ -12,6 +12,12 @@
         font-size: 14px;
         font-weight: 500;
         width: 1608px;
+    }
+    .table-header {
+        color: v.$projects-text-light-1;
+        border-bottom: 2px solid #dfe1e6;
+        margin-bottom: 2px;
+        padding-bottom: 4px;
         & > div {
             display: flex;
             & > div {
@@ -24,7 +30,8 @@
                 &:hover {
                     background: v.$projects-dropdown-background-light-2;
                     img {
-                        visibility: unset;
+                        visibility: visible;
+                        opacity: 0.6;
                     }
                 }
             }
@@ -34,11 +41,88 @@
                 visibility: hidden;
             }
         }
+        .active-filter {
+            & > div {
+                background: v.$projects-dropdown-background-light-2;
+                img {
+                    visibility: visible;
+                    opacity: 1 !important;
+                }
+            }
+        }
+        .descending-order {
+            img {
+                transform: rotate(180deg);
+            }
+        }
     }
-    .table-header {
-        color: v.$projects-text-light-1;
-        border-bottom: 2px solid #dfe1e6;
-        padding-bottom: 4px;
+
+    .table-data {
+        display: flex;
+        flex-direction: column;
+        .table-row {
+            font-weight: 400 !important;
+            padding: 10px 0;
+            &:hover {
+                background: v.$projects-dropdown-text-light-1;
+            }
+            & > div {
+                display: flex;
+                align-items: center;
+                & > div {
+                    display: flex;
+                    align-items: center;
+                    padding-left: 8px;
+                    width: max-content;
+                }
+            }
+            .type {
+                img {
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+            .key {
+                color: v.$sidebar-text-light-2;
+                font-size: 12px;
+                font-weight: 600;
+                &:hover {
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
+            .summary {
+                a {
+                    color: v.$text-light-2;
+                    text-decoration: none;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+            .username-icon {
+                img {
+                    border-radius: 50%;
+                    width: 24px;
+                    height: 24px;
+                    margin-right: 8px;
+                }
+            }
+            .priority {
+                img {
+                    padding-left: 8px;
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+        }
+        .active-row {
+            background: v.$background-light-2;
+            box-shadow: inset 2px 0 rgba(13, 20, 36, 0.63);
+            &:hover {
+                background: v.$background-light-2;
+            }
+        }
     }
 
     .type {
