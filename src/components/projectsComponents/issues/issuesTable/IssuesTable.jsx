@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./IssuesTable.module.scss";
-import { data } from "./issuesTableData";
+import dayjs from "dayjs";
 
 // Assets
 import UpArrowIcon from "../../../../resources/icons/common/up-arrow-icon.svg";
@@ -11,8 +11,6 @@ import TaskIcon from "../../../../resources/icons/common/task.svg";
 import StoryIcon from "../../../../resources/icons/common/story.svg";
 import EpicIcon from "../../../../resources/icons/common/epic.svg";
 import MediumPriorityIcon from "../../../../resources/icons/common/mediumPriority.svg";
-import dayjs from "dayjs";
-import { useMemo } from "react";
 
 const getIssueTypeIcon = (type) => {
     let icon = null;
@@ -39,21 +37,17 @@ const getIssueTypeIcon = (type) => {
 };
 
 const IssuesTable = (props) => {
+    const { sortType, setSortType, resetPagination } = props;
     const [activeIssue, setActiveIssue] = useState(0);
 
     const formatDateTime = (date) => dayjs(date).format("MMM DD, YYYY");
-
-    const [sortType, setSortType] = useState({ isDesc: true, type: "created_at" });
-
-    const sortedData = useMemo(() => {
-        return data?.sort((a, b) => (sortType?.isDesc ? (a[sortType.type] > b[sortType.type] ? -1 : 1) : b[sortType.type] > a[sortType.type] ? -1 : 1));
-    }, [sortType]);
 
     const changeSortType = (type) => {
         setSortType((prevState) => {
             if (prevState.type == type) return { type, isDesc: !prevState.isDesc };
             return { type, isDesc: false };
         });
+        resetPagination();
     };
 
     return (
@@ -172,7 +166,7 @@ const IssuesTable = (props) => {
                 <div className={styles["options"]}></div>
             </div>
             <div className={styles["table-data"]}>
-                {sortedData.map((issue, idx) => (
+                {props.data.map((issue, idx) => (
                     <div
                         className={`${styles["table-row"]} ${styles[activeIssue == idx ? "active-row" : ""]}`}
                         key={issue.key}

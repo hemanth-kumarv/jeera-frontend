@@ -1,0 +1,27 @@
+@use "../../variables" as v;
+
+.pagination {
+    display: flex;
+    align-items: center;
+    position: sticky;
+    left: 0;
+    width: 100%;
+    & > div {
+        color: v.$sidebar-text-light-1;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 0 10px;
+        cursor: pointer;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        height: 32px;
+        &:hover {
+            background: v.$projects-dropdown-background-light-2;
+        }
+        &[isActivePage="true"] {
+            background: v.$projects-dropdown-background-light-3;
+            color: v.$projects-dropdown-text-light-1;
+        }
+    }
+}

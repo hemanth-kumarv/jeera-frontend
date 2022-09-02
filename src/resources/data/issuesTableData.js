@@ -2,7 +2,7 @@ const types = ["EPIC", "STORY", "TASK", "SUBTASK", "BUG"];
 const names = ["Hemanth Kumar", "John Doe", "Testing Banma", "Kumar Hemanth", "Unassigned"];
 const status = ["IN_PROGRESS", "TODO", "DONE"];
 
-export const data = Array.from(new Array(50)).map((_, idx) => ({
+export const data = Array.from(new Array(160)).map((_, idx) => ({
     key: idx + 1,
     type: types[idx % 5],
     summary: "Test task of type: " + types[idx % 5],
