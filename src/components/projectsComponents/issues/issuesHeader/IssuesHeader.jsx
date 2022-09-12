@@ -6,6 +6,7 @@ import SearchBar from "../../../searchBar/SearchBar";
 import Dropdown from "../../dropdown/Dropdown";
 
 const IssuesHeader = (props) => {
+    const { rawData, setSearchBarData } = props;
     return (
         <div className={styles["issues-header"]}>
             <Breadcrumbs mainRoute={{ link: "/", title: "Projects" }} subRoute={{ link: "/", title: "Jeera" }} />
@@ -17,7 +18,7 @@ const IssuesHeader = (props) => {
                 </div>
             </div>
             <div>
-                <SearchBar />
+                <SearchBar searchParam="key,summary" setFilteredData={setSearchBarData} rawData={rawData} />
                 <Dropdown title="Project">Project</Dropdown>
                 <Dropdown title="Type">Type</Dropdown>
                 <Dropdown title="Status">Status</Dropdown>
