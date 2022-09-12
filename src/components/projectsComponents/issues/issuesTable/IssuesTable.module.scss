@@ -16,6 +16,9 @@
         border-bottom: 2px solid #dfe1e6;
         margin-bottom: 2px;
         padding-bottom: 4px;
+        position: sticky;
+        top: 0;
+        background: white;
         & > div {
             display: flex;
             & > div {
