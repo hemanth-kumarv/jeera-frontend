@@ -32,7 +32,7 @@
         }
     }
     .active-dropdown {
-        background: v.$projects-dropdown-background-light-3;
+        background: v.$projects-dropdown-background-light-3 !important;
         &:hover {
             background-color: currentColor;
         }

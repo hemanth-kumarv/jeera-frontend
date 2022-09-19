@@ -10,5 +10,7 @@ export const PROJECTS_ROUTES = {
     REPORTS_ROUTE: "reports",
     ISSUES_ROUTE: "issues",
     CODE_ROUTE: "code",
-    RELEASES_ROUTE: "releases"
+    RELEASES_ROUTE: "releases",
+    DEPLOYMENTS_ROUTE: "deployments",
+    ON_CALL_ROUTE: "on-call-schedule"
 };

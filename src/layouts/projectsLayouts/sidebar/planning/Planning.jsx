@@ -12,8 +12,6 @@ const Planning = (props) => {
     const [isCaretShown, toggleCaret] = useState(false);
     const [isNavLinksShown, toggleNavLinks] = useState(true);
 
-    const isActiveTab = (name) => location.pathname?.includes(name);
-
     return (
         <div
             className={`${styles["sidebar-group"]} ${styles["planning"]}`}
@@ -30,11 +28,11 @@ const Planning = (props) => {
             <div className={styles["group-title"]}>PLANNING</div>
             {isNavLinksShown && (
                 <>
-                    <SideNavigationLinks SvgIcon={RoadmapIcon} isActive={false} label={"Roadmap"} />
-                    <SideNavigationLinks SvgIcon={BacklogIcon} isActive={false} label={"Backlog"} />
-                    <SideNavigationLinks SvgIcon={BoardIcon} isActive={false} label={"Board"} />
-                    <SideNavigationLinks SvgIcon={ReportsIcon} isActive={false} label={"Reports"} />
-                    <SideNavigationLinks SvgIcon={IssuesIcon} isActive={isActiveTab(PROJECTS_ROUTES.ISSUES_ROUTE)} label={"Issues"} />
+                    <SideNavigationLinks SvgIcon={RoadmapIcon} link={PROJECTS_ROUTES.ROADMAP_ROUTE} label={"Roadmap"} />
+                    <SideNavigationLinks SvgIcon={BacklogIcon} link={PROJECTS_ROUTES.BACKLOG_ROUTE} label={"Backlog"} />
+                    <SideNavigationLinks SvgIcon={BoardIcon} link={PROJECTS_ROUTES.BOARD_ROUTE} label={"Board"} />
+                    <SideNavigationLinks SvgIcon={ReportsIcon} link={PROJECTS_ROUTES.REPORTS_ROUTE} label={"Reports"} />
+                    <SideNavigationLinks SvgIcon={IssuesIcon} link={PROJECTS_ROUTES.ISSUES_ROUTE} label={"Issues"} />
                 </>
             )}
         </div>

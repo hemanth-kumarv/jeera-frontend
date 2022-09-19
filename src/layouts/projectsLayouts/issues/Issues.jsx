@@ -20,10 +20,14 @@ const Issues = (props) => {
     const [tableSortType, setTableSortType] = useState(initialSortType);
 
     const filteredData = useMemo(() => {
-        let newData = searchBarFilteredData;
+        let newData = searchBarFilteredData; // Apply filter on searched data
+
+        // Sorting based on tableSortType (Table header)
         newData = newData?.sort((a, b) =>
             tableSortType?.isDesc ? (a[tableSortType.type] > b[tableSortType.type] ? -1 : 1) : b[tableSortType.type] > a[tableSortType.type] ? -1 : 1
         );
+
+        // Pagination filter
         newData = newData.filter((obj, idx) => Math.floor(idx / pageSize) == currentPage - 1);
         return newData;
     }, [currentPage, tableSortType, searchBarFilteredData]);

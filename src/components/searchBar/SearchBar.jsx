@@ -4,7 +4,7 @@ import { ReactComponent as SearchBarIcon } from "../../resources/icons/common/se
 import { debounce } from "lodash";
 
 const SearchBar = (props) => {
-    const { searchParam, setFilteredData, rawData } = props;
+    const { searchParam, setFilteredData, rawData, placeholder } = props;
     const [isSearchBarActive, setIsSearchBarActive] = useState(false);
     const [searchBarData, setSearchBarData] = useState("");
 
@@ -30,7 +30,7 @@ const SearchBar = (props) => {
             <SearchBarIcon className={styles["searchbar-icon"]} />
             <input
                 type="text"
-                placeholder="Search"
+                placeholder={placeholder || "Search"}
                 onFocus={() => setIsSearchBarActive(true)}
                 onBlur={() => setIsSearchBarActive(false)}
                 value={searchBarData}

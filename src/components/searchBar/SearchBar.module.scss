@@ -1,7 +1,7 @@
 @use "../../components/variables" as v;
 
 .search-bar {
-    border: 2px solid #dfe1e6;
+    border: 2px solid v.$border-light-1;
     border-radius: 5px;
     height: 30px;
     padding: 0 12px 0 30px;
@@ -13,6 +13,7 @@
         border: none;
         outline: none;
         font-size: 14px;
+        width: 100%;
     }
     .searchbar-icon {
         position: absolute;
