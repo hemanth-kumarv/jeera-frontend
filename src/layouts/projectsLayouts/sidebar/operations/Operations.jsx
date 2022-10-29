@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "../Sidebar.module.scss";
+import commonStyles from "../../projects.module.scss";
 import { ReactComponent as DeploymentsIcon } from "../../../../resources/icons/sideNavigation/deployments.svg";
 import { ReactComponent as OnCallIcon } from "../../../../resources/icons/sideNavigation/onCall.svg";
 import SideNavigationLinks from "../../../../components/projectsComponents/sidebarComponents/sideNavigationLinks/SideNavigationLinks";
@@ -17,7 +18,7 @@ const Operations = (props) => {
         >
             {isCaretShown && (
                 <div
-                    className={styles["collapse-icon"]}
+                    className={commonStyles["collapse-icon"]}
                     onClick={() => toggleNavLinks((prevState) => !prevState)}
                     arrow={isNavLinksShown ? "bottom" : "right"}
                 />

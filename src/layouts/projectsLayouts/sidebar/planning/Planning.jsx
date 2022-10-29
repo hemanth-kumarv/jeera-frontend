@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import commonStyles from "../../projects.module.scss";
 import styles from "../Sidebar.module.scss";
 import { ReactComponent as RoadmapIcon } from "../../../../resources/icons/sideNavigation/roadmap.svg";
 import { ReactComponent as BacklogIcon } from "../../../../resources/icons/sideNavigation/backlog.svg";
@@ -20,7 +21,7 @@ const Planning = (props) => {
         >
             {isCaretShown && (
                 <div
-                    className={styles["collapse-icon"]}
+                    className={commonStyles["collapse-icon"]}
                     onClick={() => toggleNavLinks((prevState) => !prevState)}
                     arrow={isNavLinksShown ? "bottom" : "right"}
                 />

@@ -6,7 +6,6 @@ import styles from "./BacklogHeader.module.scss";
 
 const BacklogHeader = (props) => {
     const { users } = props;
-    console.log("users :>> ", users);
     return (
         <div className={styles["backlog-header"]}>
             <Breadcrumbs mainRoute={{ link: "/", title: "Projects" }} subRoute={{ link: "/", title: "Jeera" }} />
