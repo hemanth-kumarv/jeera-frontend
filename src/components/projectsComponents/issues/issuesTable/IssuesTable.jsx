@@ -10,7 +10,11 @@ import SubtaskIcon from "../../../../resources/icons/common/subtask.svg";
 import TaskIcon from "../../../../resources/icons/common/task.svg";
 import StoryIcon from "../../../../resources/icons/common/story.svg";
 import EpicIcon from "../../../../resources/icons/common/epic.svg";
+import HighestPriorityIcon from "../../../../resources/icons/common/highestPriority.svg";
+import HighPriorityIcon from "../../../../resources/icons/common/highPriority.svg";
 import MediumPriorityIcon from "../../../../resources/icons/common/mediumPriority.svg";
+import LowPriorityIcon from "../../../../resources/icons/common/lowPriority.svg";
+import LowestPriorityIcon from "../../../../resources/icons/common/lowestPriority.svg";
 
 const getIssueTypeIcon = (type) => {
     let icon = null;
@@ -32,6 +36,29 @@ const getIssueTypeIcon = (type) => {
             break;
         default:
             icon = null;
+    }
+    return icon;
+};
+const getPriorityIcon = (priority) => {
+    let icon = null;
+    switch (priority) {
+        case "VERY_HIGH":
+            icon = HighestPriorityIcon;
+            break;
+        case "HIGH":
+            icon = HighPriorityIcon;
+            break;
+        case "MEDIUM":
+            icon = MediumPriorityIcon;
+            break;
+        case "LOW":
+            icon = LowPriorityIcon;
+            break;
+        case "VERY_LOW":
+            icon = LowestPriorityIcon;
+            break;
+        default:
+            icon = MediumPriorityIcon;
     }
     return icon;
 };
@@ -212,7 +239,7 @@ const IssuesTable = (props) => {
                             <div className={styles["label"]}>{issue?.reporter}</div>
                         </div>
                         <div className={styles["priority"]}>
-                            <img src={MediumPriorityIcon} />
+                            <img src={getPriorityIcon(issue?.priority)} />
                         </div>
                         <div className={styles["status"]}>
                             <div className={styles["label"]}>{issue?.status}</div>

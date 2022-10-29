@@ -1,6 +1,7 @@
 const types = ["EPIC", "STORY", "TASK", "SUBTASK", "BUG"];
 const names = ["Hemanth Kumar", "John Doe", "Testing Banma", "Kumar Hemanth", "Unassigned"];
 const status = ["IN_PROGRESS", "TODO", "DONE"];
+const priority = ["VERY_LOW", "LOW", "MEDIUM", "HIGH", "VERY_HIGH"];
 
 export const data = Array.from(new Array(160)).map((_, idx) => ({
     key: idx + 1,
@@ -12,5 +13,5 @@ export const data = Array.from(new Array(160)).map((_, idx) => ({
     resolution: status[idx % 3] == "DONE" ? "Done" : "Unresolved",
     created_at: new Date(1662040000000 - Math.random() * 9999000000),
     updated_at: new Date(1662040000000 - Math.random() * 9999000000),
-    due_at: idx % 2 == 0 ? new Date(1662040000000 - Math.random() * 9999000000) : null
+    priority: idx % 2 == 0 ? priority[Math.floor(Math.random() * 100) % 5] : null
 }));
