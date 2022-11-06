@@ -1,8 +1,28 @@
+<!---
+ git log --oneline --decorate --pretty="format:- %s [(%h)](https://github.com/hemanth-kumarv/jeera-frontend/commit/%H)"
+--->
+
+<!-- ## Version List
+
+- [2W52Y2021](#2W52Y2021)
+- [1W52Y2021](#1W52Y2021)
+- [1W51Y2021](#1W51Y2021)
+-->
+
+<!--
+## <div id="1W17Y2022">[1W17Y2022] - 18/04/22</div>
+### Added
+### Changed
+### Fixed
+-->
+
 <h1 align="center">Jeera Frontend</h1>
 
 <br />
 
-Mock application (Frontend) of Jira for Issue Tracking in Agile Project Management
+Mock application (Frontend) of Jira for Issue Tracking in Agile Project Management. Hosted at https://jeera-f3859.web.app
+
+Create React App made with [cra-template-complete-web-app](https://www.npmjs.com/package/cra-template-complete-web-app)
 
 <br />
 
