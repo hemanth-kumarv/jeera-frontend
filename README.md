@@ -65,7 +65,7 @@ Launches the test runner in the interactive watch mode.
 
 <br />
 
-## 🦾 build
+## 🦾 build & deploy
 
 ```
 npm build
@@ -81,6 +81,12 @@ Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.
+
+```
+npx firebase deploy --only hosting
+```
+
+After creating a build, deploy to firebase with above command. Instructions for setup followed from the [Official Firebase Docs](https://firebase.google.com/docs/hosting/quickstart)
 
 <br />
 
