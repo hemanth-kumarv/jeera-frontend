@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./SprintwiseIssues.module.scss";
 import commonStyles from "../../../../layouts/projectsLayouts/projects.module.scss";
 import dayjs from "dayjs";
@@ -17,6 +17,7 @@ import LowPriorityIcon from "../../../../resources/icons/common/lowPriority.svg"
 import LowestPriorityIcon from "../../../../resources/icons/common/lowestPriority.svg";
 import ChildIssuesIcon from "../../../../resources/icons/common/childIssues.svg";
 import ClockIcon from "../../../../resources/icons/common/clock.svg";
+import IssueStatusDropdown from "../../../issueStatusDropdown/IssueStatusDropdown.jsx";
 
 const sprintDateFormatter = (date) => dayjs(date).format("DD MMM");
 
@@ -72,7 +73,7 @@ const SprintwiseIssues = (props) => {
     const { sprint } = props;
 
     return (
-        <div className={styles["sprint"]}>
+        <div className={`${sprint?.isBacklog ? styles["backlog"] : styles["sprint"]}`}>
             <div className={styles["sprint-header"]}>
                 <div className={`${commonStyles["collapse-icon"]} ${styles["collapse-icon"]}`} arrow={"bottom"} />
                 <div className={styles["sprint-name"]}>{sprint?.name}</div>
@@ -82,13 +83,13 @@ const SprintwiseIssues = (props) => {
                 <div className={`${styles["sprint-issues-count"]} ${styles["sprint-subtext"]}`}>({sprint?.issues?.length} issues)</div>
                 <div style={{ marginLeft: "auto" }} />
                 <div className={styles["story-points-totals"]}>
-                    <div className={styles["issue-story-points"]} storyType="notStarted">
+                    <div className={styles["issue-story-points"]} storyType="notStarted" title="Not Started - Story Points">
                         {sprint?.storyPoints?.notStarted}
                     </div>
-                    <div className={styles["issue-story-points"]} storyType="inProgress">
+                    <div className={styles["issue-story-points"]} storyType="inProgress" title="In Progress - Story Points">
                         {sprint?.storyPoints?.inProgress}
                     </div>
-                    <div className={styles["issue-story-points"]} storyType="done">
+                    <div className={styles["issue-story-points"]} storyType="done" title="Done - Story Points">
                         {sprint?.storyPoints?.done}
                     </div>
                 </div>
@@ -101,7 +102,7 @@ const SprintwiseIssues = (props) => {
                         <div className={styles["issue-type"]}>
                             <img src={getIssueTypeIcon(issue?.type)} />
                         </div>
-                        <div className={styles["issue-key"]}>JEERA-{issue?.key}</div>
+                        <div className={`${styles["issue-key"]} ${issue?.status == "DONE" ? styles["issue-complete"] : ""}`}>JEERA-{issue?.key}</div>
                         <div className={styles["issue-summary"]} title={issue?.summary}>
                             {issue?.summary}
                         </div>
@@ -124,7 +125,9 @@ const SprintwiseIssues = (props) => {
                                 <img src={getPriorityIcon(issue?.priority)} />
                             </div>
                         )}
-                        <div className={styles["issue-status"]}>{issue?.status}</div>
+                        <div className={styles["issue-status"]}>
+                            <IssueStatusDropdown issueType={issue?.status} parentTableRef={props?.tableRef} />
+                        </div>
                         <div className={styles["issue-assigned-to"]}>
                             <img
                                 src={

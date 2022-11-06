@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import BacklogHeader from "../../../components/projectsComponents/backlog/backlogHeader/BacklogHeader";
 import SprintwiseIssues from "../../../components/projectsComponents/backlog/sprintwiseIssues/SprintwiseIssues";
 import { data } from "../../../resources/data/issuesTableData";
@@ -49,12 +49,14 @@ const Backlog = (props) => {
         [data]
     );
 
+    const tableRef = useRef();
+
     return (
         <div className={commonStyles["projects-content"]}>
             <BacklogHeader users={assignedUsers} />
-            <div className={styles["sprints-list"]}>
+            <div className={styles["sprints-list"]} ref={tableRef}>
                 {sprints.map((sprint, idx) => (
-                    <SprintwiseIssues sprint={sprint} key={idx} />
+                    <SprintwiseIssues sprint={sprint} key={idx} tableRef={tableRef} />
                 ))}
             </div>
         </div>

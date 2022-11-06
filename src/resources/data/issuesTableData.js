@@ -1,6 +1,6 @@
 const types = ["EPIC", "STORY", "TASK", "SUBTASK", "BUG"];
 const names = ["Hemanth Kumar", "John Doe", "Testing Banma", "Kumar Hemanth", "Unassigned"];
-const status = ["IN_PROGRESS", "TODO", "DONE"];
+export const status = ["TODO", "IN_PROGRESS", "DONE"];
 const priority = ["VERY_LOW", "LOW", "MEDIUM", "HIGH", "VERY_HIGH"];
 
 export const data = Array.from(new Array(160)).map((_, idx) => ({

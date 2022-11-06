@@ -1,0 +1,84 @@
+@use "../variables" as v;
+
+.issue-type {
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 3px;
+    padding: 2px 4px;
+}
+.TODO {
+    background: v.$border-light-1;
+    color: v.$sidebar-text-light-1;
+    &[isActive="true"],
+    &:hover {
+        background: v.$issue-status-todo-background-light;
+        color: v.$projects-text-light-1;
+        & > div {
+            border-color: v.$projects-text-light-1;
+        }
+    }
+}
+.DONE {
+    background: v.$issue-status-done-background-light;
+    color: v.$issue-status-done-text-light;
+    &[isActive="true"],
+    &:hover {
+        background: v.$completed-background-light-1;
+        color: v.$background-light-1;
+        & > div {
+            border-color: v.$background-light-1;
+        }
+    }
+}
+
+.IN_PROGRESS {
+    background: v.$issue-status-in-progress-background-light;
+    color: v.$issue-status-in-progress-text-light;
+    &[isActive="true"],
+    &:hover {
+        background: v.$text-light-2;
+        color: v.$background-light-1;
+        & > div {
+            border-color: v.$background-light-1;
+        }
+    }
+}
+
+.dropdown {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    width: 220px;
+    background: v.$background-light-1 !important;
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px v.$projects-dropdown-background-light-4;
+    display: flex;
+    flex-direction: column;
+    padding: 8px 0;
+}
+.dropdown-open {
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px v.$search-bar-active-outline;
+}
+.dropdown-label {
+    position: relative;
+    padding-right: 16px;
+    & > div {
+        right: 5px;
+        top: 4.5px;
+        left: auto;
+    }
+}
+.dropdown-types {
+    display: flex;
+    padding: 6px 12px;
+
+    & > div {
+        width: max-content;
+    }
+}
+.active-type {
+    box-shadow: inset 2px 0px 0px #0052cc;
+    background: v.$border-light-3;
+}

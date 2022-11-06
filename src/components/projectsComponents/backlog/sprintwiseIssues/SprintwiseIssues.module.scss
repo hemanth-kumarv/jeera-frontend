@@ -2,6 +2,9 @@
 
 .sprint {
     background: v.$projects-dropdown-text-light-1;
+}
+.backlog,
+.sprint {
     padding: 8px;
     padding-left: 12px;
     border-radius: 8px;
@@ -102,6 +105,9 @@
 }
 .issue-key {
     color: v.$text-light-4;
+}
+.issue-complete {
+    text-decoration: line-through;
 }
 .issue-summary {
     &:hover {
