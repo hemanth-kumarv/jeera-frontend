@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import RootComponent from "./RootComponent";
@@ -8,6 +9,9 @@ const App = () => {
     return (
         <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>
+                <Helmet>
+                    <title>Jeera - A Jira clone</title>
+                </Helmet>
                 <RootComponent />
             </PersistGate>
         </Provider>

@@ -7,6 +7,7 @@ import Pagination from "../../../components/projectsComponents/pagination/Pagina
 
 import { data } from "../../../resources/data/issuesTableData";
 import { ReactComponent as NoIssuesIcon } from "../../../resources/icons/common/no-issues-found.svg";
+import { Helmet } from "react-helmet";
 
 const Issues = (props) => {
     const pageSize = 50;
@@ -39,6 +40,9 @@ const Issues = (props) => {
 
     return (
         <div className={commonStyles["projects-content"]}>
+            <Helmet>
+                <title>Jeera - Issues</title>
+            </Helmet>
             <IssuesHeader setSearchBarData={setSearchBarFilteredData} rawData={data} />
             <div className={styles["issues-table"]} isEmpty={String(Boolean(!totalPageLength))} ref={tableRef}>
                 {totalPageLength ? (

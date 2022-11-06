@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useRef } from "react";
+import { Helmet } from "react-helmet";
 import BacklogHeader from "../../../components/projectsComponents/backlog/backlogHeader/BacklogHeader";
 import SprintwiseIssues from "../../../components/projectsComponents/backlog/sprintwiseIssues/SprintwiseIssues";
 import { data } from "../../../resources/data/issuesTableData";
@@ -53,6 +54,9 @@ const Backlog = (props) => {
 
     return (
         <div className={commonStyles["projects-content"]}>
+            <Helmet>
+                <title>Jeera - Sprint Backlog</title>
+            </Helmet>
             <BacklogHeader users={assignedUsers} />
             <div className={styles["sprints-list"]} ref={tableRef}>
                 {sprints.map((sprint, idx) => (
