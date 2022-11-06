@@ -1,4 +1,4 @@
-import React, { Fragment, useMemo, useState } from "react";
+import React, { Fragment, useMemo, useState, useRef } from "react";
 import styles from "./Issues.module.scss";
 import commonStyles from "../projects.module.scss";
 import IssuesHeader from "../../../components/projectsComponents/issues/issuesHeader/IssuesHeader";
@@ -13,6 +13,8 @@ const Issues = (props) => {
 
     const [currentPage, setCurrentPage] = useState(1);
     const [searchBarFilteredData, setSearchBarFilteredData] = useState(data);
+
+    const tableRef = useRef();
 
     const totalPageLength = searchBarFilteredData?.length;
 
@@ -38,10 +40,16 @@ const Issues = (props) => {
     return (
         <div className={commonStyles["projects-content"]}>
             <IssuesHeader setSearchBarData={setSearchBarFilteredData} rawData={data} />
-            <div className={styles["issues-table"]} isEmpty={String(Boolean(!totalPageLength))}>
+            <div className={styles["issues-table"]} isEmpty={String(Boolean(!totalPageLength))} ref={tableRef}>
                 {totalPageLength ? (
                     <Fragment>
-                        <IssuesTable data={filteredData} resetPagination={() => setCurrentPage(1)} sortType={tableSortType} setSortType={setTableSortType} />
+                        <IssuesTable
+                            data={filteredData}
+                            resetPagination={() => setCurrentPage(1)}
+                            sortType={tableSortType}
+                            setSortType={setTableSortType}
+                            tableRef={tableRef}
+                        />
                         <div className={styles["table-footer"]}>
                             <div>&nbsp;</div>
                             <div>{`${fromIssueCount}-${toIssueCount} of ${totalPageLength}`}</div>

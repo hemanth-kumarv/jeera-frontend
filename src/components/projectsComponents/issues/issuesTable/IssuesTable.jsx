@@ -15,6 +15,7 @@ import HighPriorityIcon from "../../../../resources/icons/common/highPriority.sv
 import MediumPriorityIcon from "../../../../resources/icons/common/mediumPriority.svg";
 import LowPriorityIcon from "../../../../resources/icons/common/lowPriority.svg";
 import LowestPriorityIcon from "../../../../resources/icons/common/lowestPriority.svg";
+import IssueStatusDropdown from "../../../issueStatusDropdown/IssueStatusDropdown.jsx";
 
 const getIssueTypeIcon = (type) => {
     let icon = null;
@@ -64,7 +65,7 @@ const getPriorityIcon = (priority) => {
 };
 
 const IssuesTable = (props) => {
-    const { sortType, setSortType, resetPagination } = props;
+    const { sortType, setSortType, resetPagination, tableRef } = props;
     const [activeIssue, setActiveIssue] = useState(0);
 
     const formatDateTime = (date) => dayjs(date).format("MMM DD, YYYY");
@@ -242,7 +243,9 @@ const IssuesTable = (props) => {
                             <img src={getPriorityIcon(issue?.priority)} />
                         </div>
                         <div className={styles["status"]}>
-                            <div className={styles["label"]}>{issue?.status}</div>
+                            <div className={styles["label"]}>
+                                <IssueStatusDropdown issueType={issue?.status} parentTableRef={tableRef} leftAlign="true" />
+                            </div>
                         </div>
                         <div className={styles["resolution"]}>
                             <div className={styles["label"]}>{issue?.resolution}</div>

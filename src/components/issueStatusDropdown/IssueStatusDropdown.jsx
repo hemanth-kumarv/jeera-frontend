@@ -25,7 +25,7 @@ const getLabel = (type) => {
 };
 
 const IssueStatusDropdown = (props) => {
-    const { issueType, parentTableRef } = props;
+    const { issueType, parentTableRef, leftAlign } = props;
     const remainingStatusTypes = useMemo(() => status?.filter((type) => type != issueType), [status, issueType]);
     const [isDropdownOpen, toggleDropdownOpen] = useState(false);
     const [scrollTop, setScrollTop] = useState(null);
@@ -52,10 +52,9 @@ const IssueStatusDropdown = (props) => {
             let { offsetTop, offsetLeft, offsetWidth: buttonWidth } = buttonRef?.current || {};
 
             // Set position of dropdown
-            // X-position is leftOffset - 220px (width of dropdown) + button width -> Done to right align dropdown
+            // X-position is leftOffset + button width - 220px (width of dropdown) -> Done to right align dropdown
             // Y-position is topOffset + 30px (not immediately below the button) - scrollTop value -> useEffect dependent variable, so that dropdown moves when scrolled
-            popupRef.current.style.transform = `translate(${offsetLeft - 220 + buttonWidth}px, ${offsetTop + 30 - scrollTop}px)`;
-
+            popupRef.current.style.transform = `translate(${offsetLeft + (leftAlign ? 0 : buttonWidth - 220)}px, ${offsetTop + 30 - scrollTop}px)`;
             let { top, bottom } = parentTableRef?.current?.getBoundingClientRect() || {};
             let { y } = popupRef?.current?.getBoundingClientRect() || {};
             if (isDropdownOpen && (y <= top || y >= bottom)) toggleDropdownOpen(false); // If button scrolled beyond viewport, toggle it hidden
